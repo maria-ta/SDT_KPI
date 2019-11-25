@@ -1,9 +1,7 @@
 package com.company;
 
-import java.lang.annotation.Annotation;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-import java.lang.reflect.Array;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
@@ -35,13 +33,11 @@ class Stack{
 
     public void push(int element) {
         if(!isFull()) stackArray[++top] = element;
-        //System.out.println("Push " + element);
     }
 
     public int pop() {
         int ret = stackArray[top];
         if (top>0) top--;
-        //System.out.println("Pop " + ret);
         return ret;
     }
     public int read() {
@@ -135,7 +131,9 @@ public class Main {
                 else System.out.println("No shouldRunIt annotation");
             }
         }
-        catch (SecurityException | IllegalAccessException | InvocationTargetException e) {};
+        catch (SecurityException | IllegalAccessException | InvocationTargetException e) {
+            System.out.err(e);
+        };
 
     }
 

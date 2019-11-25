@@ -21,7 +21,6 @@ import static java.util.stream.Collectors.groupingBy;
  */
 public class FileStats {
 
-    //TODO:?
     private final Map<Character, Long> characterCountMap;
     private final char mostPopularCharacter;
 
@@ -90,7 +89,6 @@ public class FileStats {
      * @return a number that shows how many times this character appeared in a text file
      */
     public int getCharCount(char character) {
-        //throw new UnsupportedOperationException("It's your job to make it work!"); //todo
         return characterCountMap.get(character).intValue();
     }
 
@@ -100,7 +98,6 @@ public class FileStats {
      * @return the most frequently appeared character
      */
     public char getMostPopularCharacter() {
-        //throw new UnsupportedOperationException("It's your job to make it work!"); //todo
         return mostPopularCharacter;
     }
 
@@ -111,7 +108,6 @@ public class FileStats {
      * @return {@code true} if this character has appeared in the text, and {@code false} otherwise
      */
     public boolean containsCharacter(char character) {
-        //throw new UnsupportedOperationException("It's your job to make it work!"); //todo
         return characterCountMap.containsKey(character);
     }
 }

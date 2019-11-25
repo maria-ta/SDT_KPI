@@ -4,10 +4,6 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-
-        System.out.println("Запуск тестового режиму");
-        System.out.println(testMode());
-        System.out.println("Запуск робочого режиму");
         normalMode();
     }
     private static int getInt(String signStr){
@@ -36,21 +32,10 @@ public class Main {
             ticket.printTicket();
         }
     }
-
-    private static boolean testMode(){
-        int quantity = (int) (Math.random() * Math.pow(10, (int) (Math.random()*5)));
-        System.out.println("Введіть кількість (ціле число) білетів для генерації:");
-        System.out.println(quantity);
-        for (int i=0; i<quantity; i++){
-            Ticket ticket = new Ticket(i+1);
-            if (!ticket.Test()) return false;
-        }
-        return true;
-    }
 }
 
 class Question{
-    public String[][] lists = {
+    public final String[][] lists = {
             {
                 "1.1 Вопрос",
                     "1.2 Вопрос",
@@ -71,7 +56,6 @@ class Question{
     };
     private int listNum;
     private int questionNum;
-    //private String questionText;
 
     Question(int num){
         listNum = checkListNum(num);
@@ -84,18 +68,11 @@ class Question{
     }
 
     public int genQuestionNum(){
-        //questionNum -- from 0 to (int) 0.999999...*lists[num].length === lists[num].length - 1;
         return (int) (Math.random()*lists[listNum].length);
-        //return 100;
     }
 
     public String getQuestion(){
         return lists[listNum][questionNum];
-    }
-
-    public boolean Test(){
-        if (questionNum>lists[listNum].length - 1 || questionNum < 0) return false;
-        else return true;
     }
 }
 
@@ -121,13 +98,6 @@ class Ticket{
     public void printTicket(){
         System.out.println("Білет №" + (ticketNum));
         System.out.println(getTicket());
-    }
-
-    public boolean Test(){
-        for (int i=0; i<3; i++){
-            if (!questions[i].Test()) return false;
-        }
-        return true;
     }
 
 }
