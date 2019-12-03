@@ -20,7 +20,8 @@ public class LinkedQueue<T> implements Queue<T> {
     public void add(T element) {
         Node<T> newNode = Node.valueOf(element);
         if (head == null) {
-            head = tail = newNode;
+            head = newNode;
+            tail = newNode;
         } else {
             tail.next = newNode;
             tail = newNode;
